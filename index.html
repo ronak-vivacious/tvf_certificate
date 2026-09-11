@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>XRF Testing Certificate Generator</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <img src="assets/images/bis-logo.png" alt="Bureau of Indian Standards logo" class="brand-logo" />
+    <div class="header-text">
+      <h1>XRF Testing Certificate Generator</h1>
+      <p>Fill in the jewellery details below to generate a BIS hallmarked certificate PDF.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="form-panel" aria-label="Certificate details form">
+      <form id="cert-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" maxlength="60" placeholder="e.g. Vikrambhai" required />
+          <span class="error" id="err-name"></span>
+        </div>
+
+        <div class="field">
+          <label for="weight">Weight</label>
+          <input type="text" id="weight" name="weight" maxlength="30" placeholder="e.g. 20.550 GM" required />
+          <span class="error" id="err-weight"></span>
+        </div>
+
+        <div class="field">
+          <label for="product">Product</label>
+          <input type="text" id="product" name="product" maxlength="40" placeholder="e.g. Necklace" required />
+          <span class="error" id="err-product"></span>
+        </div>
+
+        <div class="field">
+          <label for="purity">Purity</label>
+          <input type="text" id="purity" name="purity" maxlength="30" placeholder="e.g. 22K 916" required />
+          <span class="error" id="err-purity"></span>
+        </div>
+
+        <div class="field">
+          <label for="image">Product Image</label>
+          <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required />
+          <span class="hint">JPG, PNG or WebP, up to 5&nbsp;MB.</span>
+          <span class="error" id="err-image"></span>
+          <img id="image-preview" class="image-preview" alt="" hidden />
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="btn-generate" class="btn btn-primary">Generate PDF</button>
+          <button type="button" id="btn-download" class="btn btn-secondary" disabled>Download PDF</button>
+          <button type="reset" id="btn-reset" class="btn btn-ghost">Reset</button>
+        </div>
+
+        <p id="status-msg" class="status-msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="preview-panel" aria-label="PDF preview">
+      <h2>PDF Preview</h2>
+      <div class="preview-frame-wrap">
+        <iframe id="pdf-preview" title="Certificate PDF preview" hidden></iframe>
+        <div id="preview-placeholder" class="preview-placeholder">
+          Your generated certificate will appear here.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>All processing happens locally in your browser. No data or image ever leaves your device.</p>
+  </footer>
+
+  <!-- Vendored libraries (no external network calls) -->
+  <script src="assets/pdf-lib.min.js"></script>
+  <script src="assets/fontkit.umd.min.js"></script>
+  <script src="js/pdfGenerator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

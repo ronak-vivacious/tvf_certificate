@@ -1,0 +1,10 @@
+{
+  "name": "xrf-certificate-generator",
+  "version": "1.0.0",
+  "description": "Client-side XRF Testing Certificate PDF generator built on the original BIS hallmark certificate template.",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes serve -l 5173 ."
+  },
+  "license": "UNLICENSED"
+}
