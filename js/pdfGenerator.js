@@ -168,7 +168,7 @@ const CertificateTemplate = (() => {
     // Landscape is guaranteed here because the template itself is landscape
     // (width > height) and we copy its exact dimensions without rotation.
     const page = pdfDoc.addPage([pageWidth, pageHeight]);
-    page.drawPage(embeddedPage, { x: 0, y: 0, width: pageWidth, height: pageHeight });
+    page.drawRectangle({ x: 0, y: 0, width: pageWidth, height: pageHeight, color: PDFLib.rgb(0xe4/255, 0xe9/255, 0xe2/255), opacity: 0.25 });
 
     drawField(page, font, "name", data.name);
     drawField(page, font, "weight", data.weight);
